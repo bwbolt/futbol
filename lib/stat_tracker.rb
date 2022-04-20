@@ -1,10 +1,11 @@
 require 'csv'
+require_relative 'team'
 require_relative '../modules/game_statistics'
 require_relative '../modules/league_statistics'
 require_relative '../modules/season_statistics'
 require_relative '../modules/team_statistics'
 
-class StatTracker
+class StatTracker < Team
   include TeamStatistics
   include GameStats
   include LeagueStats
@@ -27,9 +28,5 @@ class StatTracker
     stat_tracker.teams = Team.create_list_of_teams(stat_tracker.teams_csv)
     stat_tracker.game_teams = GameTeams.create_list_of_game_teams(stat_tracker.game_teams_csv)
     stat_tracker
-  end
-
-  def team_id_to_name(id)
-    @teams.find { |team| team.team_id == id }.team_name
   end
 end

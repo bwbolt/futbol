@@ -13,4 +13,8 @@ class Team
   def self.create_list_of_teams(teams)
     teams.map { |team| Team.new(team) }
   end
+
+  def team_id_to_name(id)
+    @teams.find { |team| team.team_id == id }.team_name
+  end
 end
