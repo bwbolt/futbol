@@ -66,4 +66,14 @@ describe GameStats do
                                                           '20172018' => 4.44
                                                         })
   end
+
+  it "can see the goals by the season" do
+  expect(@stat_tracker.goals_by_season).to eq({"20122013" => 3322,
+     "20132014" => 5547,
+     "20142015" => 5461,
+     "20152016" => 5499,
+     "20162017" => 5565,
+     "20172018" => 6019})
+end
+
 end

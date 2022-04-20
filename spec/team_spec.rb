@@ -62,4 +62,53 @@ describe TeamStatistics do
   it 'can produce the team that wins against a team the most' do
     expect(@stat_tracker.rival('18')).to eq('Houston Dash').or(eq('LA Galaxy'))
   end
+
+  it "can count wins by season" do
+    expect(@stat_tracker.count_season_wins('1')).to eq({
+       "2012" => 16,
+       "2013" => 31,
+       "2014" => 28,
+       "2015" => 32,
+       "2016" => 26,
+       "2017" => 33,})
+  end
+
+  it "can test the opponenet hasher" do
+    expect(@stat_tracker.opponent_hasher('2', 'WIN')).to eq({
+       "1" => 12,
+       "10" => 6,
+       "12" => 8,
+       "13" => 7,
+       "14" => 5,
+       "15" => 12,
+       "16" => 3,
+       "17" => 7,
+       "18" => 4,
+       "19" => 4,
+       "20" => 7,
+       "21" => 4,
+       "22" => 4,
+       "23" => 4,
+       "24" => 4,
+       "25" => 5,
+       "26" => 1,
+       "27" => 1,
+       "28" => 3,
+       "29" => 6,
+       "3" => 10,
+       "30" => 3,
+       "4" => 6,
+       "5" => 10,
+       "52" => 6,
+       "53" => 4,
+       "54" => 2,
+       "6" => 4,
+       "7" => 10,
+       "8" => 5,
+       "9" => 6})
+  end
+
+  it "can check win ratio hasher" do
+    expect(@stat_tracker.win_ratio_hasher('1')).to be_an(Array)
+  end
 end
