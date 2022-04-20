@@ -48,4 +48,12 @@ describe LeagueStats do
   it '#lowest_scoring_home_team' do
     expect(@stat_tracker.lowest_scoring_home_team).to eq 'Utah Royals FC'
   end
+
+  it '#wins_calculator' do
+    expect(@stat_tracker.wins_calculator).to be_a Array
+  end
+
+  it '#home_away_calculator' do
+    expect(@stat_tracker.home_away_calculator('away')).to be_a Array
+  end
 end
