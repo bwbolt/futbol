@@ -21,6 +21,10 @@ describe GameStats do
     @stat_tracker = StatTracker.from_csv(locations)
   end
 
+  it "#highest_total_score" do
+   expect(@stat_tracker.highest_total_score).to eq 5
+  end
+ 
   it '#lowest_total_score' do
     expect(@stat_tracker.lowest_total_score).to eq 1
   end
