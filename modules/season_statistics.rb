@@ -42,7 +42,7 @@ module Season
         teams[game.team_id][:shots] += game.shots
       end
     end
-    teams.map { |team, number| [team, number[:goals].to_f / number[:shots]] }.sort_by { |team| team[1] }
+    teams.map { |team, number| [team, (number[:goals].to_f / number[:shots]).round(6)] }.sort_by { |team| team[1] }
   end
 
   def most_tackles(season)
@@ -62,6 +62,6 @@ module Season
         teams[game.team_id] += game.tackles
       end
     end
-    teams.sort_by { |_team, number| number }
+    a = teams.sort_by { |_team, number| number }
   end
 end
